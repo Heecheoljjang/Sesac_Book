@@ -11,16 +11,24 @@ private let reuseIdentifier = "Cell"
 
 class BookCollectionViewController: UICollectionViewController {
 
+    let books = BookInfo()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let layout = UICollectionViewFlowLayout()
-        let width = UIScreen.main.bounds.width
+        let spacing: CGFloat = 16
+        let width = UIScreen.main.bounds.width - 40 // 16 * 2 + 8
         
-        layout.itemSize = CGSize(width: width / 5, height: 100)
         layout.scrollDirection = .vertical
+
+        layout.itemSize = CGSize(width: width / 2, height: width / 2)
         
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.minimumLineSpacing = spacing / 2
+        
+        layout.minimumInteritemSpacing = spacing / 2
+        
+        layout.sectionInset = UIEdgeInsets(top: spacing / 4, left: spacing, bottom: spacing, right: spacing)
         
         collectionView.collectionViewLayout = layout
         
@@ -34,14 +42,24 @@ class BookCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 50
+        return books.books.count
         
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCollectionViewCell", for: indexPath) as? BookCollectionViewCell else { return UICollectionViewCell()}
     
+        cell.titleLabel.font = .systemFont(ofSize: 20, weight: .heavy)
+        cell.titleLabel.text = books.books[indexPath.item].bookTitle
+        cell.rateLabel.font = .systemFont(ofSize: 11, weight: .light)
+        cell.rateLabel.textAlignment = .center
+        cell.rateLabel.text = "\(books.books[indexPath.item].rate)"
+        cell.coverImg.contentMode = .scaleToFill
+        cell.coverImg.image = books.books[indexPath.item].coverImg
+        cell.coverImg.layer.cornerRadius = 4
         
+        cell.backgroundColor = books.books[indexPath.item].bgColor
+        cell.layer.cornerRadius = 10
         
         return cell
     }
