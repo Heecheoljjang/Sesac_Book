@@ -48,18 +48,8 @@ class BookCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BookCollectionViewCell", for: indexPath) as? BookCollectionViewCell else { return UICollectionViewCell()}
-    
-        cell.titleLabel.font = .systemFont(ofSize: 20, weight: .heavy)
-        cell.titleLabel.text = books.books[indexPath.item].bookTitle
-        cell.rateLabel.font = .systemFont(ofSize: 11, weight: .light)
-        cell.rateLabel.textAlignment = .center
-        cell.rateLabel.text = "\(books.books[indexPath.item].rate)"
-        cell.coverImg.contentMode = .scaleToFill
-        cell.coverImg.image = books.books[indexPath.item].coverImg
-        cell.coverImg.layer.cornerRadius = 4
         
-        cell.backgroundColor = books.books[indexPath.item].bgColor
-        cell.layer.cornerRadius = 10
+        cell.configureCell(data: books.books[indexPath.item])
         
         return cell
     }
