@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="1110.144927536232" y="93.75"/>
         </scene>
-        <!--Book Collection View Controller-->
+        <!--Book-->
         <scene sceneID="dfN-U3-Xdf">
             <objects>
                 <collectionViewController id="thT-07-2fv" customClass="BookCollectionViewController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,48 +114,19 @@
                             <outlet property="delegate" destination="thT-07-2fv" id="Flx-gM-9qD"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="GtH-YH-hcX"/>
+                    <navigationItem key="navigationItem" title="Book" id="GtH-YH-hcX"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0vq-j4-AQm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1884.057971014493" y="105.80357142857143"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="ilU-dy-dag">
-            <objects>
-                <viewController id="juy-dt-nGP" customClass="TestViewController" customModule="Book" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="czF-wS-A6O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qfR-nB-0q0">
-                                <rect key="frame" x="50" y="144" width="314" height="618"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="BHA-Xn-prY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="qfR-nB-0q0" firstAttribute="top" secondItem="BHA-Xn-prY" secondAttribute="top" constant="100" id="LhC-yW-Nof"/>
-                            <constraint firstItem="qfR-nB-0q0" firstAttribute="leading" secondItem="BHA-Xn-prY" secondAttribute="leading" constant="50" id="cbg-BM-eJ1"/>
-                            <constraint firstItem="BHA-Xn-prY" firstAttribute="trailing" secondItem="qfR-nB-0q0" secondAttribute="trailing" constant="50" id="kK0-gI-JSk"/>
-                            <constraint firstItem="BHA-Xn-prY" firstAttribute="bottom" secondItem="qfR-nB-0q0" secondAttribute="bottom" constant="100" id="mqn-dE-zdf"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="imgView" destination="qfR-nB-0q0" id="3H9-eX-CoV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8f-JC-IQr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1494" y="763"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ylx-Yn-Jnb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2VW-p4-5Jq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9jE-xL-QKj">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="9jE-xL-QKj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -168,6 +139,7 @@
             <point key="canvasLocation" x="200.00000000000003" y="93.75"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "상세정보"
+        navigationController?.navigationBar.tintColor = .darkGray
     }
     @IBAction func tapWebBtn(_ sender: UIButton) {
 

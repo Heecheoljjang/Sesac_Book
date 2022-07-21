@@ -35,6 +35,7 @@ class BookCollectionViewController: UICollectionViewController {
         
         // 네비게이션 추가
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(tapSearchBtn))
+        navigationController?.navigationBar.tintColor = .darkGray
         
     }
 
@@ -71,9 +72,15 @@ class BookCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let sb = UIStoryboard(name: "Detail", bundle: nil)
+        
         guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.identity) as? DetailViewController else { return }
         
-        navigationController?.pushViewController(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        vc.modalPresentationStyle = .fullScreen
+
+//      navigationController?.pushViewController(vc, animated: true)
+//        vc.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
    
 }
