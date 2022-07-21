@@ -16,6 +16,7 @@ class BookCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 컬렉션뷰 레이아웃
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 16
         let width = UIScreen.main.bounds.width - 40 // 16 * 2 + 8
@@ -32,8 +33,22 @@ class BookCollectionViewController: UICollectionViewController {
         
         collectionView.collectionViewLayout = layout
         
+        // 네비게이션 추가
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(tapSearchBtn))
+        
     }
 
+    @objc func tapSearchBtn() {
+        let sb = UIStoryboard(name: "Search", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: SearchViewController.identity) as? SearchViewController else { return }
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: false)
+    }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -54,5 +69,11 @@ class BookCollectionViewController: UICollectionViewController {
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Detail", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: DetailViewController.identity) as? DetailViewController else { return }
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
    
 }
